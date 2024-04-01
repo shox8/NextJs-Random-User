@@ -1,4 +1,4 @@
-import users from "../json/users.json";
+import users from "../../json/users.json";
 
 export async function GET() {
   const randomNumber = Math.floor(Math.random() * users.length);

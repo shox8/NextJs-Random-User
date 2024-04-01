@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { Tabs, Tab } from "@nextui-org/react";
-import RandomUser from "./components/RandomUser";
-import Users from "./components/Users";
+import RandomUser from "./pages/RandomUser";
+import Users from "./pages/Users";
 
 export default function Home() {
   return (
