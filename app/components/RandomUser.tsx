@@ -5,14 +5,16 @@ import {
   Card,
   CardBody,
   Spacer,
-  CircularProgress,
   Code,
   User as NextUser,
   Button,
+  Spinner,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function RandomUser() {
   const [user, setUser] = useState<User | any>({});
+  const url = location.origin + "/random-user";
 
   useEffect(() => {
     return () => {
@@ -28,13 +30,32 @@ export default function RandomUser() {
     });
   }
 
+  function copyUrl() {
+    navigator.clipboard.writeText(url);
+  }
+
   return (
-    <div className="w-full p-3">
+    <div className="w-full justify-center p-3 flex flex-col items-center">
+      <div>
+        <Code className="p-2">
+          <span className="text-green-200 px-2 bg-green-900 p-1 rounded-md">
+            GET
+          </span>
+          <Link href={url} className="ml-2" target="_blank">
+            {url}
+          </Link>
+        </Code>
+        <Button
+          onClick={copyUrl}
+          color="success"
+          size="sm"
+          className="ml-2 h-9"
+        >
+          Copy Url
+        </Button>
+      </div>
       {user.id ? (
         <div className="flex flex-col gap-4 items-start">
-          <Code>
-            <span className="text-green-400">GET</span> /random-user
-          </Code>
           <NextUser
             name={user.fullname}
             description={user.occupation}
@@ -77,14 +98,7 @@ export default function RandomUser() {
           </Card>
         </div>
       ) : (
-        <CircularProgress
-          classNames={{
-            svg: "w-36 h-36 drop-shadow-md",
-            track: "stroke-white/10",
-          }}
-          strokeWidth={4}
-          color="danger"
-        />
+        <Spinner size="lg" color="danger" />
       )}
       <Button
         onClick={getRandomUser}
