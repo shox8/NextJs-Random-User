@@ -1,5 +1,6 @@
+import { NextResponse } from "next/server";
 import users from "../../json/users.json";
 
 export async function GET() {
-  return new Response(JSON.stringify(users));
+  return NextResponse.json(users, { status: 200 });
 }
