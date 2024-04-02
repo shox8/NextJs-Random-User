@@ -1,6 +1,9 @@
-import { NextResponse } from "next/server";
 import users from "../../json/users.json";
+import { NextResponse } from "next/server";
+import { applyImage } from "../utils";
 
 export async function GET() {
-  return NextResponse.json(users, { status: 200 });
+  const usersList = users.map((items) => applyImage(items));
+
+  return NextResponse.json(usersList, { status: 200 });
 }

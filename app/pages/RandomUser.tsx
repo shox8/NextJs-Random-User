@@ -9,8 +9,8 @@ import {
   User as NextUser,
   Button,
   Spinner,
+  Snippet,
 } from "@nextui-org/react";
-import Url from "../components/Url";
 
 export default function RandomUser() {
   const [user, setUser] = useState<User | any>({});
@@ -32,7 +32,7 @@ export default function RandomUser() {
 
   return (
     <div className="w-full justify-center p-3 flex flex-col items-center">
-      <Url path={path} />
+      <Snippet color="warning">{location.origin + path}</Snippet>
       {user.id ? (
         <div className="flex flex-col gap-4 items-start">
           <NextUser

@@ -10,9 +10,9 @@ import {
   getKeyValue,
   Pagination,
   Spinner,
+  Snippet,
 } from "@nextui-org/react";
 import { User } from "../types";
-import Url from "../components/Url";
 
 const columns = [
   {
@@ -67,9 +67,9 @@ export default function Users() {
 
   return (
     <div className="w-full justify-center p-3 flex flex-col items-center gap-5">
-      <Url path={path} />
+      <Snippet color="warning">{location.origin + path}</Snippet>
       <Table
-      isStriped
+        isStriped
         bottomContent={
           <div className="flex w-full justify-center">
             <Pagination
