@@ -17,9 +17,7 @@ export default function RandomUser() {
   const path = "/api/random-user";
 
   useEffect(() => {
-    return () => {
-      getRandomUser();
-    };
+    getRandomUser();
   }, []);
 
   function getRandomUser() {

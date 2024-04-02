@@ -54,15 +54,13 @@ export default function Users() {
   }, [page, users]);
 
   useEffect(() => {
-    return () => {
-      fetch(path)
-        .then((response) => {
-          response.json().then((users: User[]) => {
-            setUsers(users);
-          });
-        })
-        .finally(() => setLoading(false));
-    };
+    fetch(path)
+      .then((response) => {
+        response.json().then((users: User[]) => {
+          setUsers(users);
+        });
+      })
+      .finally(() => setLoading(false));
   });
 
   return (

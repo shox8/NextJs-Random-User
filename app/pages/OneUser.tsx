@@ -15,13 +15,11 @@ export default function UsersById() {
   const path = "/api/users/1";
 
   useEffect(() => {
-    return () => {
-      fetch(path).then((response) => {
-        response.json().then((user: User) => {
-          setUser(user);
-        });
+    fetch(path).then((response) => {
+      response.json().then((user: User) => {
+        setUser(user);
       });
-    };
+    });
   });
 
   return (
